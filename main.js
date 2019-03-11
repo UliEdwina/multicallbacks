@@ -118,13 +118,16 @@ function addToAll(event) {
     event.preventDefault();
 
     // Grab value to add.
-    let numberToAdd = document.querySelector('#number-for-math').value;
+    const stringifiedNumber = document.querySelector('#number-for-math').value;
+    const numberToAdd = parseInt(stringifiedNumber, 10);
 
     // Add value to everything on the list.
-
+    for(let i = 0; i < numbers.length; i++) {
+        numbers[i] = numbers[i] + numberToAdd;
+    }
 
     // Update our html.
-
+    updateUL();
 }
 
 function subtractFromAll(event) {
@@ -133,6 +136,7 @@ function subtractFromAll(event) {
     
     // Grab value to add.
     let numberToSubtract = document.querySelector('#number-for-math').value;
+    
     
     // Add value to everything on the list.
   
