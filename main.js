@@ -54,14 +54,17 @@ function appendToList(event) {
     event.preventDefault();
 
     // Get the value we're going to append from the input field.
-    let number = document.querySelector('#list-number').value;
+    const stringifiedNumber = document.querySelector('#list-number').value;
+
+    const number = parseInt(stringifiedNumber, 10);
 
     // Append the number to our array.
     // Hint: here (and elsewhere), watch the TYPE of the value above.
     // Research `typeof` operator if you're not sure.
+    numbers.push(number);
 
     // Update our html.
-
+    updateUL();
 
 }
 // Remove from the list.
