@@ -1,3 +1,3 @@
 # MultiCalc
 
-__*A*__ solution to [The MultiCalc Exercise](https://github.com/abbreviatedman/multicalc).
+One of many possible solutions to [The MultiCalc Exercise](https://github.com/abbreviatedman/multicalc).
