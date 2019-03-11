@@ -5,7 +5,7 @@
 */
 
 // global array
-let numbers = [];
+const numbers = [];
 
 // When the window loads, set up event listeners
 window.onload = init;
@@ -73,22 +73,23 @@ function removeFromList(event) {
     event.preventDefault();
 
     // Get the index we'll remove from the input field.
-    let index = document.querySelector('#list-number').value;
+    const stringifiedIndex = document.querySelector('#list-number').value;
+    const index = parseInt(stringifiedIndex, 10);
 
     // Remove the number at that index from the list.
-
     /*
-        ### Hints:
-
-        * You can either loop through... or use array methods. Check out concat!
-
-        * Either way, though, we've declared out array using `let` this time,
-        and reassigning the array is probably the best approach with our current
-        tools.
+    ### Hints:
+    
+    * You can either loop through... or use array methods. Check out concat!
+    
+    * Either way, though, we've declared out array using `let` this time,
+    and reassigning the array is probably the best approach with our current
+    tools.
     */
-
+   
+   numbers.splice(index, 1);
     // Update our html.
-
+    updateUL();
 
 }
 
