@@ -140,12 +140,12 @@ function subtractFromAll(event) {
     
     // Subtract value from everything on the list.
     for(let i = 0; i < numbers.length; i++) {
-        numbers[i] = numbers[i] - numberToAdd;
+        numbers[i] = numbers[i] - numberToSubtract;
     }
 
 
     // Update our html.
-
+    updateUL();
 }
 
 function multiplyByAll(event) {
@@ -153,13 +153,16 @@ function multiplyByAll(event) {
     event.preventDefault();
     
     // Grab value to multply by.
-    let numberToMultiply = document.querySelector('#number-for-math').value;
+    const stringifiedNumber = document.querySelector('#number-for-math').value;
+    const numberToMultiply = parseInt(stringifiedNumber, 10);
     
     // Multiply value by everything on the list.
-    
+    for(let i = 0; i < numbers.length; i++) {
+        numbers[i] = numbers[i] * numberToMultiply;
+    }
     
     // Update our html.
-    
+    updateUL();
 }
 
 function divideFromAll(event) {
