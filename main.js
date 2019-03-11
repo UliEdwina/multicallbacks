@@ -134,12 +134,15 @@ function subtractFromAll(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
     
-    // Grab value to add.
-    let numberToSubtract = document.querySelector('#number-for-math').value;
+    // Grab value to subtract.
+    const stringifiedNumber = document.querySelector('#number-for-math').value;
+    const numberToSubtract = parseInt(stringifiedNumber, 10);
     
-    
-    // Add value to everything on the list.
-  
+    // Subtract value from everything on the list.
+    for(let i = 0; i < numbers.length; i++) {
+        numbers[i] = numbers[i] - numberToAdd;
+    }
+
 
     // Update our html.
 
@@ -149,10 +152,10 @@ function multiplyByAll(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
     
-    // Grab value to add.
+    // Grab value to multply by.
     let numberToMultiply = document.querySelector('#number-for-math').value;
     
-    // Add value to everything on the list.
+    // Multiply value by everything on the list.
     
     
     // Update our html.
@@ -163,13 +166,13 @@ function divideFromAll(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
 
-    // Grab value to add.
+    // Grab value to divide from.
     let numberToDivide = document.querySelector('#number-for-math').value;
 
     // Divide value from everything on the list.
     
 
-    // // Update our html.plo
+    // // Update our html
     
 }
 
