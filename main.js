@@ -98,10 +98,12 @@ function clearList(event) {
     event.preventDefault();
 
     // Clear the array of all values.
-
+    while(numbers.length > 0) {
+        numbers.pop();
+    }
 
     // Update our html.
-    
+    updateUL();
 }
 
 /*
