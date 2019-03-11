@@ -170,13 +170,16 @@ function divideFromAll(event) {
     event.preventDefault();
 
     // Grab value to divide from.
-    let numberToDivide = document.querySelector('#number-for-math').value;
+    const stringifiedNumber = document.querySelector('#number-for-math').value;
+    const numberToDivide = parseInt(stringifiedNumber, 10);
 
     // Divide value from everything on the list.
-    
+    for(let i = 0; i < numbers.length; i++) {
+        numbers[i] = numbers[i] / numberToDivide;
+    }
 
     // // Update our html
-    
+    updateUL();
 }
 
 
