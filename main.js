@@ -5,7 +5,7 @@
 */
 
 // global array
-const numbers = [];
+let numbers = [];
 
 // When the window loads, set up event listeners
 window.onload = init;
@@ -113,6 +113,7 @@ function clearList(event) {
 */
 
 
+
 function addToAll(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
@@ -122,10 +123,13 @@ function addToAll(event) {
     const numberToAdd = parseInt(stringifiedNumber, 10);
 
     // Add value to everything on the list.
-    for(let i = 0; i < numbers.length; i++) {
-        numbers[i] = numbers[i] + numberToAdd;
+
+    function addUserNumber(num) {
+        return numberToAdd + num;
     }
 
+    numbers = numbers.map(addUserNumber);
+    
     // Update our html.
     updateUL();
 }
@@ -137,13 +141,13 @@ function subtractFromAll(event) {
     // Grab value to subtract.
     const stringifiedNumber = document.querySelector('#number-for-math').value;
     const numberToSubtract = parseInt(stringifiedNumber, 10);
-    
-    // Subtract value from everything on the list.
-    for(let i = 0; i < numbers.length; i++) {
-        numbers[i] = numbers[i] - numberToSubtract;
+       
+    function subtractUserNumber(num) {
+        return num - numberToSubtract;
     }
-
-
+    
+    numbers = numbers.map(subtractUserNumber);
+    
     // Update our html.
     updateUL();
 }
@@ -155,11 +159,12 @@ function multiplyByAll(event) {
     // Grab value to multply by.
     const stringifiedNumber = document.querySelector('#number-for-math').value;
     const numberToMultiply = parseInt(stringifiedNumber, 10);
-    
-    // Multiply value by everything on the list.
-    for(let i = 0; i < numbers.length; i++) {
-        numbers[i] = numbers[i] * numberToMultiply;
+
+    function multiplyUserNumber(num) {
+        return numberToMultiply * num;
     }
+    
+    numbers = numbers.map(multiplyUserNumber);
     
     // Update our html.
     updateUL();
@@ -168,16 +173,15 @@ function multiplyByAll(event) {
 function divideFromAll(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
-
+    
     // Grab value to divide from.
     const stringifiedNumber = document.querySelector('#number-for-math').value;
     const numberToDivide = parseInt(stringifiedNumber, 10);
 
-    // Divide value from everything on the list.
-    for(let i = 0; i < numbers.length; i++) {
-        numbers[i] = numbers[i] / numberToDivide;
-    }
+    // Arrow function version!
+    numbers = numbers.map((num) => num / numberToDivide);
 
+    
     // // Update our html
     updateUL();
 }
